@@ -1,0 +1,15 @@
+@startuml
+
+skinparam monochrome true
+
+participant Client
+
+Client -> Server: login(username, password);
+activate Server
+
+Server -> Server: generateToken();
+
+Server -> Client
+deactivate Server
+
+@enduml

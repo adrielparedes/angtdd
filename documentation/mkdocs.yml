@@ -1,0 +1,10 @@
+site_name: Documentación Avianca
+pages:
+  - [index.md, Home]
+  - [jwt.md, JSON Web Token]
+  - [tdd.md,Agile Application Development ,TDD]
+  - [tdd-extras.md,Agile Application Development ,TDD Extras]
+  - [angular.md,Agile Application Development ,Angular]
+  - [angular-extras.md,Agile Application Development ,Angular Extras]
+theme: readthedocs
+#theme: flatly

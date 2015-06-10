@@ -1,0 +1,67 @@
+<html ng-app="avianca">
+
+<head>
+  <link rel="stylesheet"
+  href="libs/patternfly-1.1.4/dist/css/patternfly.css"
+  media="screen"
+  title="no title" charset="utf-8">
+</head>
+
+<link rel="stylesheet"
+href="libs/AngularJS-Toaster-0.4.13/toaster.css"
+media="screen"
+title="no title" charset="utf-8">
+</head>
+
+
+<body>
+  <toaster-container></toaster-container>
+  <nav class="navbar navbar-default navbar-pf" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          <label>Application</label>
+        </a>
+      </div>
+      <av-menu>
+        <av-menu-item url="/">Home</av-menu-item>
+        <av-menu-item url="/aviones">Aviones</av-menu-item>
+        <av-menu-item url="/carros">Carros</av-menu-item>
+      </av-menu>
+    </nav>
+
+
+
+  <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+        </div>
+      </div>
+    <div ng-view>
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+  libs/AngularJS-Toaster-0.4.13
+<script src="libs/bower-angular-1.4.0-rc.1/angular.js" charset="utf-8"></script>
+<script src="libs/bower-angular-route-1.4.0-rc.1/angular-route.js" charset="utf-8"></script>
+<script src="libs/bower-angular-animate-1.4.0-rc.1/angular-animate.js" charset="utf-8"></script>
+<script src="libs/AngularJS-Toaster-0.4.13/toaster.js" charset="utf-8"></script>
+
+
+<script src="app.js" charset="utf-8"></script>
+<script src="aviones/aviones.js" charset="utf-8"></script>
+<script src="aviones/aviones-service.js" charset="utf-8"></script>
+<script src="home/home.js" charset="utf-8"></script>
+<script src="asientos/asientos.js" charset="utf-8"></script>
+<script src="asientos/asientos-service.js" charset="utf-8"></script>
+<script src="menu/menu.js" charset="utf-8"></script>
+<script src="tabla/tabla.js" charset="utf-8"></script>
+<script src="login/login.js" charset="utf-8"></script>
+<script src="user/user.js" charset="utf-8"></script>
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+# Angular Extras
+
+```javascript
+```
+
+## gulpfile.js
+
+```javascript
+var gulp = require('gulp');
+var serve = require('gulp-serve');
+
+
+gulp.task('serve', serve(['app','templates','bower_components']));
+```
+
+## app.js
+
+```javascript
+
+var module = angular.module('Avianca',['ngRoute','controllers']);
+
+module.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/', {
+        templateUrl: '',
+        controller: ''
+      }).
+      otherwise({
+        redirectTo: '/'
+      });
+  }]);
+```
+
+
+## controller.js
+
+```javascript
+
+var module = angular.module('controllers',[]);
+
+module.controller("NinjaController",['$scope',function(){
+
+}]);
+```
+
+
+## index.html
+
+```html
+<nav class="navbar navbar-default navbar-pf" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <label>Application</label>
+      </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-utility">
+        <li>
+          <a href="#">Status</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="pficon pficon-user"></span>
+            Brian Johnson <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">Link</a>
+            </li>
+            <li>
+              <a href="#">Another link</a>
+            </li>
+            <li>
+              <a href="#">Something else here</a>
+            </li>
+            <li class="divider"></li>
+            <li class="dropdown-submenu">
+              <a tabindex="-1" href="#">More options</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">Link</a>
+                </li>
+                <li>
+                  <a href="#">Another link</a>
+                </li>
+                <li>
+                  <a href="#">Something else here</a>
+                </li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li>
+                  <a href="#">Separated link</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#">One more separated link</a>
+                </li>
+              </ul>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#">One more separated link</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-primary">
+        <li class="active">
+          <a href="basic.html" class="active">Basic</a>
+        </li>
+        <li>
+          <a href="bootstrap-treeview-2.html">Tree View</a>
+        </li>
+        <li>
+          <a href="dashboard.html">Dashboard</a>
+        </li>
+        <li>
+          <a href="form.html">Form</a>
+        </li>
+        <li>
+          <a href="tab.html">Tab</a>
+        </li>
+        <li>
+          <a href="typography-2.html">Typography</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+
+  <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+      </div>
+    <div ng-view>
+    </div>  
+  </div>
+
+
+
+```
+
+
+## list.html
+
+```html
+
+
+      <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer"><div class="dataTables_header"><div id="DataTables_Table_0_filter" class="dataTables_filter"><label><input type="search" class="" placeholder="" aria-controls="DataTables_Table_0"></label></div><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing <b>1</b> to <b>20</b> of <b>57</b> Items</div></div><div class="table-responsive"><table class="datatable table table-striped table-bordered dataTable no-footer" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" role="grid">
+        <thead>
+          <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Rendering engine</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Browser</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Platform(s)</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Engine version</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">CSS grade</th></tr>
+        </thead>
+        <tbody>
+          <tr class="gradeA odd" role="row">
+            <td class="sorting_1">Gecko</td>
+            <td>Firefox 1.0</td>
+            <td>Win 98+ / OSX.2+</td>
+            <td class="center">1.7</td>
+            <td class="center">A</td>
+          </tr></tbody>
+      </table></div><div class="dataTables_footer"><div class="dataTables_paginate paging_bootstrap_input" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="first disabled"><span class="i fa fa-angle-double-left"></span></li><li class="prev disabled"><span class="i fa fa-angle-left"></span></li></ul><div class="pagination-input"><input type="text" class="paginate_input"><span class="paginate_of">of <b>3</b></span></div><ul class="pagination"><li class="next"><span class="i fa fa-angle-right"></span></li><li class="last"><span class="i fa fa-angle-double-right"></span></li></ul></div></div></div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget eros tincidunt, semper ante nec, dapibus ante.</p>
+        </div><!-- /col -->
+      </div><!-- /row -->
+    </div><!-- /container -->
+
+
+
+
+
+    <script>
+      // Initialize Datatables
+      $(document).ready( function() {
+        $('.datatable').dataTable();
+      });
+    </script>
+
+
+```

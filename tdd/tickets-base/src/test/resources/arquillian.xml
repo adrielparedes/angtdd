@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<arquillian xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://jboss.org/schema/arquillian"
+    xsi:schemaLocation="http://jboss.org/schema/arquillian http://www.jboss.org/schema/arquillian/arquillian_1_0.xsd">
+
+		<container qualifier="openshift">
+		    <configuration>
+		        <property name="namespace">ikecloud</property>
+		        <property name="application">test</property>
+		        <property name="sshUserName">4348a6ba9d3943e6a64e0a1607b37bd5</property>
+		        <property name="passphrase">Password</property>
+		        <property name="login">foobar@example.com</property>
+		    </configuration>
+		</container>
+
+</arquillian>

@@ -1,0 +1,25 @@
+<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+  <div class="dataTables_header">
+    <div id="DataTables_Table_0_filter" class="dataTables_filter">
+      <label>
+        <input type="search" class="" placeholder="" ng-model="filtro" aria-controls="DataTables_Table_0">
+      </label>
+    </div>
+  <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Tabla de Aviones</div>
+  </div>
+<div class="table-responsive">
+
+<table class="datatable table table-striped table-bordered dataTable no-footer" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" role="grid">
+  <thead>
+    <tr role="row">
+      <th>Avion</th>
+      <th>Opciones</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr class="gradeA odd" role="row" ng-repeat="avion in aviones | filter:filtro">
+      <td>{{avion.nombre}}</td>
+      <td><a ng-href="#/aviones/{{avion.id}}/asientos"
+        class="btn btn-primary">Asientos</a></td>
+    </tr></tbody>
+</table>

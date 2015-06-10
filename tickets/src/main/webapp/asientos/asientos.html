@@ -1,0 +1,28 @@
+<div ng-init="refresh()"></div>
+<h1>Asientos</h1>
+
+      <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer"><div class="dataTables_header"><div id="DataTables_Table_0_filter" class="dataTables_filter"><label><input type="search" class="" placeholder="" ng-model="filtro" aria-controls="DataTables_Table_0"></label></div><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing <b>1</b> to <b>20</b> of <b>57</b> Items</div></div><div class="table-responsive"><table class="datatable table table-striped table-bordered dataTable no-footer" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" role="grid">
+        <thead>
+          <tr role="row">
+            <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Avion</th>
+            <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr class="gradeA odd" role="row" ng-repeat="asiento in asientos | filter:filtro">
+            <td class="sorting_1">{{asiento.nombre}}</td>
+            <td>
+              <button type="button" ng-disabled="{{asiento.ocupado}}"
+                class="btn btn-success" ng-click="ocupar(asiento.id)">Ocupar</button>
+              <button type="button" ng-disabled="{{!asiento.ocupado}}"
+                class="btn btn-danger" ng-click="liberar(asiento.id)">Liberar</button>
+                </td>
+          </tr></tbody>
+      </table>
+
+    <script>
+      // Initialize Datatables
+      $(document).ready( function() {
+        $('.datatable').dataTable();
+      });
+    </script>
