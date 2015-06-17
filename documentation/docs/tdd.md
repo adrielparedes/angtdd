@@ -3,53 +3,6 @@
 
 # Agile Application Development
 
-<!-- TOC depth:6 withLinks:1 updateOnSave:1 -->
-- [Agile Application Development](#agile-application-development)
-	- [TDD](#tdd)
-		- [Prólogo](#prlogo)
-		- [Definición](#definicin)
-		- [Ciclo de Vida](#ciclo-de-vida)
-		- [Creación de Proyecto con JBoss Forge](#creacin-de-proyecto-con-jboss-forge)
-			- [Comandos](#comandos)
-		- [Ejercitación](#ejercitacin)
-			- [Requerimientos](#requerimientos)
-		- [Test Coverage](#test-coverage)
-	- [Mockito](#mockito)
-		- [¿Qué es Mockito?](#qu-es-mockito)
-		- [¿Porque uso mockito?](#porque-uso-mockito)
-		- [Ejercitación](#ejercitacin)
-	- [JEE (JAXRS, CDI, JPA)](#jee-jaxrs-cdi-jpa)
-		- [Definiciones](#definiciones)
-	- [Testing JEE (Arquillian, Shrinkwrap, JPA)](#testing-jee-arquillian-shrinkwrap-jpa)
-		- [Teoría](#teora)
-		- [Ejercitación](#ejercitacin)
-	- [Cloud](#cloud)
-		- [Conclusión](#conclusin)
-		- [Adicionales](#adicionales)
-	- [Integración Contínua](#integracin-contnua)
-	- [BDD (Cucumber)](#bdd-cucumber)
-		- [¿Qué es Behaviour Driven Developement?](#qu-es-behaviour-driven-developement)
-		- [Ejercitation](#ejercitation)
-	- [Arquillian Graphene y Arquillian Drone (No se va a usar porque todo se hace con KARMA, PROTRACTOR y](#arquillian-graphene-y-arquillian-drone-no-se-va-a-usar-porque-todo-se-hace-con-karma-protractor-y)
-	- [Intro AngularJS](#intro-angularjs)
-	- [Requerimientos](#requerimientos)
-	- [Bootstrap del proyecto](#bootstrap-del-proyecto)
-	- [Views](#views)
-	- [Controllers](#controllers)
-		- [Scope](#scope)
-		- [Bingings](#bingings)
-	- [Services](#services)
-		- [Factory](#factory)
-		- [Service](#service)
-		- [Provider](#provider)
-	- [Manejo de Errores (toastr)](#manejo-de-errores-toastr)
-	- [Directives](#directives)
-	- [Testing](#testing)
-		- [Jasmine](#jasmine)
-		- [Protractor](#protractor)
-		- [Karma](#karma)
-<!-- /TOC -->
-
 ## TDD
 
 
