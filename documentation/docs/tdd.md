@@ -606,7 +606,7 @@ Arquillian Drone es un complemento, que sirve para manejar todo el ciclo de vida
 
 * Primero debemos agregar las dependencias de maven dependiendo de la URL que esta publicada debajo.
 
-* Debemos agregar al pom una property para saber en que browser vamos a ejecutar las pruebas:
+* Debemos agregar al pom una `property` para saber en que *browser* vamos a ejecutar las pruebas:
 
 ```xml 
 <properties>
@@ -614,7 +614,7 @@ Arquillian Drone es un complemento, que sirve para manejar todo el ciclo de vida
 </properties>
 ```
 
-* Luego generamos el deployment, sin olvidarnos de agregar todos los xhtml que queremos probar.
+* Luego generamos el deployment, sin olvidarnos de agregar todos los `xhtml` que queremos probar.
 
 ```java
 @RunWith(Arquillian.class)
@@ -635,8 +635,8 @@ public class LoginScreenGrapheneTest {
 }
 ```
 
-* Inyectamos los elementos que queremos probar. Observen que hay diferentes formas de buscarlos: por su nombre default, por el id puesto en el `xhtml`, por el `tag` resultante, por **JQuery**, por **css**, etc.
-* Ademas inyectamos el **browser** con  `@Drone`.
+* Inyectamos los elementos que queremos probar. Observen que hay diferentes formas de buscarlos: por su nombre default, por el *id* puesto en el `xhtml`, por el `tag` resultante, por **JQuery**, por **css**, etc.
+* Además inyectamos el **browser** con  `@Drone`.
 
 ```java
 @FindBy                                     
