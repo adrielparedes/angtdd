@@ -5,7 +5,6 @@
 
 ## TDD
 
-
 ### Prólogo
 
 TDD no se trata de reglas a seguir, se trata de generar el hábito, en este texto se van a explicar ciertos conceptos, pero van a ver que no existe ningun receta a seguir, sino consejos para poder cumplir ese objetivo.  ¿Hay una única manera? No, y eso es lo que quiero transmitir.
@@ -598,5 +597,91 @@ public class Stepdefs {
 ```
 
 ## Arquillian Graphene y Arquillian Drone
+
+Arquillian Graphene es una extensión del `WebDriverAPI`, que nos permite utilizar la funcionalidad de Selenium para poder realizar tests funcionales sobre el front-end que hayamos desarrollado. Por lo general este framework se utliza para aplicaciones JSF, donde yo tengo beans que me generan e interactúan con mi UI de una manera muy fuerte, sumamente acopladas por el tipo de framework. Sin embargo para tecnologías más ágiles donde tengo un backend, por ejemplo AngularJS, me conviene usar otras herramientas basadas en Selenium (como puede ser Protractor). Graphene ayuda a poder armar tests reutilizables ayudando a disminuir las incertidumbres de los cambios realizados en la interfaz gráfica.
+
+Arquillian Drone es un complemento, que sirve para manejar todo el ciclo de vida de una aplicación web dentro de un browser, o de los diferentes browsers donde se desee probar la aplicación.
+
+### Pequeño ejemplo
+
+* Primero debemos agregar las dependencias de maven dependiendo de la URL que esta publicada debajo.
+
+* Debemos agregar al pom una property para saber en que browser vamos a ejecutar las pruebas:
+
+```xml 
+<properties>
+    <browser>phantomjs</browser>
+</properties>
+```
+
+* Luego generamos el deployment, sin olvidarnos de agregar todos los xhtml que queremos probar.
+
+```java
+@RunWith(Arquillian.class)
+public class LoginScreenGrapheneTest {
+    private static final String WEBAPP_SRC = "src/main/webapp";
+    
+    @Deployment(testable = false)
+    public static WebArchive createDeployment() {
+        return ShrinkWrap.create(WebArchive.class, "login.war")
+            .addClasses(Credentials.class, User.class, LoginController.class)
+            .addAsWebResource(new File(WEBAPP_SRC, "login.xhtml"))
+            .addAsWebResource(new File(WEBAPP_SRC, "home.xhtml"))
+            .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
+            .addAsWebInfResource(
+                new StringAsset("<faces-config version=\"2.0\"/>"),
+                "faces-config.xml");
+    }
+}
+```
+
+* Inyectamos los elementos que queremos probar. Observen que hay diferentes formas de buscarlos: por su nombre default, por el id puesto en el `xhtml`, por el `tag` resultante, por **JQuery**, por **css**, etc.
+* Ademas inyectamos el **browser** con  `@Drone`.
+
+```java
+@FindBy                                     
+private WebElement userName;
+
+@FindBy
+private WebElement password;
+
+@FindBy(id = "login")
+private WebElement loginButton;
+
+@FindBy(tagName = "li")                    
+private WebElement facesMessage;
+
+@FindByJQuery("p:visible")                  
+private WebElement signedAs;
+
+@FindBy(css = "input[type=submit]")
+private WebElement whoAmI;
+
+@Drone
+private WebDriver browser;
+
+@ArquillianResource
+private URL deploymentUrl;
+
+```
+
+* Armamos el test, pedimos la URL y le agregamos el `.jsf` que necesitamos agregar. Ejecutamos el test y verificamos que se haya ejecutado correctamente.
+
+```java
+@Test
+public void should_login_successfully() {
+    browser.get(deploymentUrl.toExternalForm() + "login.jsf");
+
+    userName.sendKeys("demo");
+    password.sendKeys("demo");
+
+    loginButton.click();
+    assertEquals("Welcome", facesMessage.getText().trim());
+
+    whoAmI.click();
+    assertTrue(signedAs.getText().contains("demo"));
+}
+```
+
 
 [http://arquillian.org/guides/functional_testing_using_graphene/](http://arquillian.org/guides/functional_testing_using_graphene/)
